@@ -1,5 +1,5 @@
-pandas
-streamlit
-scikit-learn
-scipy
-openpyxl
+pandas  # Data processing
+streamlit  # Web app framework
+scikit-learn  # Data imputation
+scipy  # Statistical functions (for Z-score outlier removal)
+openpyxl  # Excel file handling
