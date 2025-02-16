@@ -3,6 +3,7 @@ import streamlit as st
 from sklearn.impute import SimpleImputer
 from scipy import stats
 import re
+from io import BytesIO
 
 def clean_data(df, handle_missing, remove_duplicates, remove_outliers, standardize_columns, remove_special_chars, remove_invalid_entries, trim_whitespace):
     """
@@ -26,7 +27,7 @@ def clean_data(df, handle_missing, remove_duplicates, remove_outliers, standardi
     if remove_outliers:
         numeric_cols = df.select_dtypes(include=['number']).columns
         initial_rows = df.shape[0]
-        df = df[(stats.zscore(df[numeric_cols]) < 3).all(axis=1)]
+        df = df[(abs(stats.zscore(df[numeric_cols], nan_policy='omit')) < 3).all(axis=1)]
         log.append(f"Removed {initial_rows - df.shape[0]} outlier rows.")
     
     if standardize_columns:
@@ -61,12 +62,12 @@ if uploaded_file:
     st.write("### Preview of Uploaded Data")
     st.write(df.head())
     
-    handle_missing = st.checkbox("Handle Missing Values")
-    remove_duplicates = st.checkbox("Remove Duplicates")
-    remove_outliers = st.checkbox("Remove Outliers")
-    standardize_columns = st.checkbox("Standardize Column Names")
+    handle_missing = st.checkbox("Handle Missing Values (Fill with most frequent value)")
+    remove_duplicates = st.checkbox("Remove Duplicate Rows")
+    remove_outliers = st.checkbox("Remove Outliers (Z-score method)")
+    standardize_columns = st.checkbox("Standardize Column Names (Lowercase & Replace Spaces)")
     remove_special_chars = st.checkbox("Remove Special Characters from Text Columns")
-    remove_invalid_entries = st.checkbox("Remove Invalid Data Entries")
+    remove_invalid_entries = st.checkbox("Remove Invalid Data Entries (e.g., Negative Age)")
     trim_whitespace = st.checkbox("Trim Whitespace from Text Columns")
     
     if st.button("Clean Data"):
@@ -78,7 +79,8 @@ if uploaded_file:
             st.write("### Cleaning Log")
             for entry in cleaning_log:
                 st.write(f"- {entry}")
-        
-        # Provide download option
-        cleaned_df.to_csv("cleaned_data.csv", index=False)
-        st.download_button("Download Cleaned Data", "cleaned_data.csv")
+                
+        output = BytesIO()
+        cleaned_df.to_csv(output, index=False)
+        output.seek(0)
+        st.download_button("Download Cleaned Data", output, "cleaned_data.csv", "text/csv")
