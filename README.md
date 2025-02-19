@@ -1,9 +1,9 @@
 # Automated Data Cleaning Tool
 
-## 📌 Overview
+##  Overview
 The **Automated Data Cleaning Tool** is a web-based application designed to streamline the process of cleaning datasets. Built with **Streamlit**, it offers multiple data preprocessing options to enhance data quality and ensure cleaner datasets for analysis.
 
-## 🚀 Features
+##  Features
 - ✅ Handle Missing Values (Fill with most frequent value)
 - ✅ Remove Duplicate Rows
 - ✅ Remove Outliers (Z-score method)
@@ -13,7 +13,7 @@ The **Automated Data Cleaning Tool** is a web-based application designed to stre
 - ✅ Trim Whitespace from Text Columns
 - ✅ Generate a Cleaning Log for tracking changes
 
-## ▶️ Usage
+## ▶ Usage
 You can access and use the tool directly via the following link:
 
 🔗 **[Automated Data Cleaning Tool](https://automateddatacleaningtool.streamlit.app/)**
@@ -24,14 +24,14 @@ You can access and use the tool directly via the following link:
 3. Click **"Clean Data"** to process your dataset.
 4. Download the cleaned file for further use.
 
-## 📦 Dependencies
+##  Dependencies
 - Python 3.7+
 - `pandas`
 - `streamlit`
 - `scikit-learn`
 - `scipy`
 
-## 🎯 Future Enhancements
+##  Future Enhancements
 - Add more advanced data cleaning techniques.
 - Provide detailed data summary reports.
 - Support for additional file formats.
