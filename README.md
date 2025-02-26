@@ -4,14 +4,14 @@
 The **Automated Data Cleaning Tool** is a web-based application designed to streamline the process of cleaning datasets. Built with **Streamlit**, it offers multiple data preprocessing options to enhance data quality and ensure cleaner datasets for analysis.
 
 ##  Features
-- ✅ Handle Missing Values (Fill with most frequent value)
-- ✅ Remove Duplicate Rows
-- ✅ Remove Outliers (Z-score method)
-- ✅ Standardize Column Names (Lowercase & Replace Spaces)
-- ✅ Remove Special Characters from Text Columns
-- ✅ Remove Invalid Data Entries (e.g., Negative Age)
-- ✅ Trim Whitespace from Text Columns
-- ✅ Generate a Cleaning Log for tracking changes
+-  Handle Missing Values (Fill with most frequent value)
+-  Remove Duplicate Rows
+-  Remove Outliers (Z-score method)
+-  Standardize Column Names (Lowercase & Replace Spaces)
+-  Remove Special Characters from Text Columns
+-  Remove Invalid Data Entries (e.g., Negative Age)
+-  Trim Whitespace from Text Columns
+-  Generate a Cleaning Log for tracking changes
 
 ## ▶ Usage
 You can access and use the tool directly via the following link:
