@@ -13,7 +13,7 @@ The **Automated Data Cleaning Tool** is a web-based application designed to stre
 -  Trim Whitespace from Text Columns
 -  Generate a Cleaning Log for tracking changes
 
-## ▶ Usage
+##  Usage
 You can access and use the tool directly via the following link:
 
 🔗 **[Automated Data Cleaning Tool](https://automateddatacleaningtool.streamlit.app/)**
