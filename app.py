@@ -42,7 +42,7 @@ def clean_data(df, handle_missing, remove_duplicates, remove_outliers, standardi
     if remove_invalid_entries:
         if 'age' in df.columns:
             initial_rows = df.shape[0]
-            df = df[df['age'] >= 0]  # Remove negative ages
+            df = df[df['age'] >= 0]  
             log.append(f"Removed {initial_rows - df.shape[0]} rows with invalid age values.")
     
     if trim_whitespace:
